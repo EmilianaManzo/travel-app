@@ -1,0 +1,35 @@
+// @use './variables' as *;
+
+.aside-bar{
+    width: 200px;
+    flex-shrink: 0;
+    height: calc(100vh - 60px);
+    background:lightblue;
+    border-top: 1px solid darkblue;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
+    ul{
+        padding: 0;
+        li{
+            padding-left: 10px;
+            list-style: none;
+            width: 100%;
+        }
+    }
+
+    .activeAside{
+        background-color: red;
+        padding: 10px 0 10px 20px ;
+    }
+
+}
+
+@media screen and (max-width : 768px) {
+    .aside-bar{
+        width: fit-content;
+        .activeAside{
+            padding-left: 10px;
+        }
+    }
+
+}

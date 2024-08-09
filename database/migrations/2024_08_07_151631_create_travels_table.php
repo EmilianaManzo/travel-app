@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stops', function (Blueprint $table) {
+        Schema::create('travels', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
             $table->string('slug', 50)->unique();
-            $table->string('photo')->nullable();
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->tinyInteger('days')->nullable()->unsigned();
             $table->text('description')->nullable();
-            $table->text('curiosity')->nullable();
-            $table->date('date')->nullable();
-            $table->decimal('latitude');
-            $table->decimal('longitude');
+            $table->string('photo')->nullable();
+            $table->tinyInteger('vote')->nullable()->unsigned();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stops');
+        Schema::dropIfExists('travels');
     }
 };
