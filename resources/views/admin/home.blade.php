@@ -1,6 +1,23 @@
 @extends('layouts.admin')
 @section('content')
+@if(session('success'))
+<div class="alert alert-success" role="alert">
+{{ session('success')}}
+</div>
+@endif
 
+@if(session('update'))
+<div class="alert alert-success" role="alert">
+{{ session('update')}}
+</div>
+@endif
+
+
+@if(session('deleted'))
+<div class="alert alert-success" role="alert">
+{{ session('deleted')}}
+</div>
+@endif
     <div class="row pt-2 pb-5 px-0 px-sm-5 px-md-0 px-lg-5">
         <div class="col-12">
             <div class="px-2 rounded-3 pb-1">

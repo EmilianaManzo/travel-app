@@ -14,7 +14,7 @@
      <div class="d-flex">
         @include('admin.partials.aside')
 
-        <div class="main w-100">
+        <div class="main">
 
           @yield('content')
         </div>

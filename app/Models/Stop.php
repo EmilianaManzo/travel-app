@@ -12,4 +12,14 @@ class Stop extends Model
     public function travel(){
         return $this->belongsTo(Travel::class);
     }
+    protected $fillable = [
+        'name',
+        'slug',
+        'date',
+        'curiosity',
+        'description',
+        'latitude',
+        'longitude',
+        'address'
+    ];
 }

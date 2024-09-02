@@ -1,7 +1,7 @@
 <form
   action="{{route('admin.travel.destroy', $travel)}}"
   method="POST"
-    onsubmit="return confirm('Sei sicuro di voler cancellare '$travel->name' ?')">
+onsubmit='return confirm("Sei sicuro di voler cancellare {{$travel->name }} ?")'>
     @csrf
     @method('DELETE')
 

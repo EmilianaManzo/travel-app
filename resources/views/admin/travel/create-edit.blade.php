@@ -57,8 +57,8 @@
                 {{ $message }}
             </small>
         @enderror
+        <img class="thumb img-thumbnail w-25 my-2" onerror="this.src='/noimg.jpg'" id="thumb" src="{{asset('storage/' . $travel?->photo)}}" >
 
-        <img class="thumb w-25 mt-2" id="thumb" src="{{asset('storage/' . $travel?->photo)}}">
     </div>
     <div class="col-12 col-md-6 mb-3">
         <label for="days" class="form-label">Voto</label>

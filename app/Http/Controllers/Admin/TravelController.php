@@ -66,9 +66,9 @@ class TravelController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Travel $travel)
     {
-        //
+        return view('admin.travel.show', compact('travel'));
     }
 
     /**
@@ -115,8 +115,9 @@ class TravelController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Travel $travel)
     {
-        //
+        $travel->delete();
+        return redirect()->route('admin.home')->with('deleted', 'Il viaggio è stato cancellato con successo!');
     }
 }

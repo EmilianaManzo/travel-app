@@ -41,34 +41,34 @@ class Helper
     }
 
 
-    // public static function reverseGeocode($latitude, $longitude)
-    // {
-    //     // La mia API key
-    //     $apiKey = env('TOMTOM_API_KEY');
+    public static function reverseGeocode($latitude, $longitude)
+    {
+        // La mia API key
+        $apiKey = env('TOMTOM_API_KEY');
 
-    //     // Percorso del file cacert.pem (serve per i permessi , dei certificati)
-    //     $cacertPath = env('CACERT_PEM_PATH');
+        // Percorso del file cacert.pem (serve per i permessi , dei certificati)
+        $cacertPath = env('CACERT_PEM_PATH');
 
-    //     // Configura il client GuzzleHttp
-    //     $client = new Client([
-    //         'base_uri' => 'https://api.tomtom.com/',
-    //         'verify' => $cacertPath,
-    //     ]);
+        // Configura il client GuzzleHttp
+        $client = new Client([
+            'base_uri' => 'https://api.tomtom.com/',
+            'verify' => $cacertPath,
+        ]);
 
-    //     // Eseguo la chiamata API
-    //     $response = $client->get("search/2/reverseGeocode/{$latitude},{$longitude}.json", [
-    //         'query' => ['key' => $apiKey]
-    //     ]);
+        // Eseguo la chiamata API
+        $response = $client->get("search/2/reverseGeocode/{$latitude},{$longitude}.json", [
+            'query' => ['key' => $apiKey]
+        ]);
 
 
-    //     // Verifico lo stato della risposta
-    //     if ($response->getStatusCode() != 200) {
-    //         return 'Errore: ' . $response->getStatusCode();
-    //     }
+        // Verifico lo stato della risposta
+        if ($response->getStatusCode() != 200) {
+            return 'Errore: ' . $response->getStatusCode();
+        }
 
-    //     $data = json_decode($response->getBody(), true);
-    //     $address = $data['addresses'][0]['address']['freeformAddress'] ?? 'Nessun indirizzo corrispondente';
+        $data = json_decode($response->getBody(), true);
+        $address = $data['addresses'][0]['address']['freeformAddress'] ?? 'Nessun indirizzo corrispondente';
 
-    //     return $address;
-    // }
+        return $address;
+    }
 }
